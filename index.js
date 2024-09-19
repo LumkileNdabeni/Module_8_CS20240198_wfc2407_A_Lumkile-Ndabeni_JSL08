@@ -18,7 +18,14 @@ class BankBranch {
     }
 }
 
+const branchA = new BankBranch({ name: 'Branch A', address: '123 Main St' }).getBranchInfo()
+console.log(branchA)
 
+const branchB = new BankBranch({ name: 'Branch B', address: '456 Secondary St' }).getBranchInfo()
+console.log(branchB)
+
+
+console.log(branchA === branchB) 
 
 
 // 3. In the `BankBranch` class:
