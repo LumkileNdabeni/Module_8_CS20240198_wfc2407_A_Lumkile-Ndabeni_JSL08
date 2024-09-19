@@ -1,32 +1,42 @@
 // This one will be a little tricky. So check out this overview first: https://www.youtube.com/watch?v=sJ-c3BA-Ypo
 
 // 1. Create a variable to store the singleton instance of the bank branch. "bankBranchInstance"
-let bankBranchInstance = null;
 
-// 2. Define a class called `BankBranch` for managing branch information.
+// Initialize a variable to hold the singleton instance
+let bankBranchInstance = null; 
+
+    // Constructor that accepts branch information
 class BankBranch {
+    // Check if an instance already exists
     constructor(brankchInfo) {
         if (bankBranchInstance === null) {
+            // If not, set the branch information
             this.brankchInfo = brankchInfo
+            // Assign the current instance to the singleton variable
             bankBranchInstance = this;
         }
+        // Return the existing instance (singleton pattern)
         return bankBranchInstance
     }
-
+    // Method to get branch information
     getBranchInfo () {
         return this.brankchInfo
     }
 }
 
+// Create the first branch instance
 const branchA = new BankBranch({ name: 'Branch A', address: '123 Main St' }).getBranchInfo()
 console.log(branchA)
 
+// Create a second branch instance
 const branchB = new BankBranch({ name: 'Branch B', address: '456 Secondary St' }).getBranchInfo()
 console.log(branchB)
 
+// Check if both branchA and branchB refer to the same instance
+console.log(branchA === branchB) // This will log true, confirming the singleton behavior
 
-console.log(branchA === branchB) 
 
+// 2. Define a class called `BankBranch` for managing branch information.
 
 // 3. In the `BankBranch` class:
 //    - Create a constructor that takes `branchInfo` as a parameter.
